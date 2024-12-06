@@ -22,7 +22,7 @@ public class TextBoxTest {
         $("#userEmail").setValue("Fooolll@test.com");
         $("#currentAddress").setValue("Pnz");
         $("#permanentAddress").setValue("Russia");
-        $("#submit").scrollIntoView(true).click(); // прокрутка для видимости кнопки
+        $("#submit").scrollIntoView(true); // прокрутка для видимости кнопки
         $("#submit").click();
 
         $("#output").should(text("Artem"), text("Fooolll@test.com"),
