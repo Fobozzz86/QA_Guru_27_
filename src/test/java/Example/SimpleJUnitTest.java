@@ -1,3 +1,5 @@
+package Example;
+
 import org.junit.jupiter.api.*;
 
 
@@ -24,11 +26,11 @@ public class SimpleJUnitTest {
 
     @AfterAll
     static void afterAll() {
-        System.out.println("###-----fterAll()\n");
+        System.out.println("###-----afterAll()\n");
     }
 
     @Test
-        void firstTest() {
+    void firstTest() {
         System.out.println("       #### @Test firstTest()");
         Assertions.assertTrue(result > 2);
 
