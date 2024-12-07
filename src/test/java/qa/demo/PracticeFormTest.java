@@ -5,12 +5,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
+        //Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
     }
@@ -34,13 +36,17 @@ public class PracticeFormTest {
         $("[for=hobbies-checkbox-3]").click();
         $("#uploadPicture").uploadFromClasspath("img/Test.jpg");
         $("#currentAddress").setValue("Penza");
+        $("#submit").scrollIntoView(true);
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
+        $(".table-hover").shouldHave(text("Artem Bulaev"), text("Fooolll@test.com"),
+                text("Male"), text("8964999000"));
+        $("#closeLargeModal").scrollIntoView(true).click();
 
-
-
-
-        sleep(600_000);
-
-
+//        sleep(600_000);
 
     }
 }
